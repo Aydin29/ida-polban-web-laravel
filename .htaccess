@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If the request targets an existing file or directory, serve it directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Prevent rewriting requests that already point to /public/
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    # Internally rewrite all other requests to the public folder
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
