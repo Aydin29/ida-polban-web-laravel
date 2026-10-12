@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IKA DARMA AYU KOMISARIAT POLBAN</title>
+    
+    <!-- UPDATE DISINI: Path Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('LOGOIDAHD.png') }}">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -89,6 +92,7 @@
     <nav class="sticky top-0 z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             <div class="flex items-center gap-2 text-xl sm:text-2xl font-bold">
+                <!-- UPDATE DISINI: Path Logo Navbar -->
                 <img src="{{ asset('LOGOIDAHD.png') }}" alt="Logo IDAKOM POLBAN" class="h-10 sm:h-14 w-auto">
                 <span class="text-gray-900">IDAKOM <span class="text-green-500">POLBAN</span></span>
             </div>
@@ -134,66 +138,80 @@
             </div>
             <div class="text-center fade-in-right hidden md:block">
                 <div class="bg-green-400 rounded-full w-72 h-72 mx-auto flex items-center justify-center bubble-float p-6">
+                    <!-- UPDATE DISINI: Path Logo Hero Section -->
                     <img src="{{ asset('LOGOIDAHD.png') }}" alt="Logo IDAKOM POLBAN" class="w-full h-full object-contain scale-125">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tentang Section -->
-        <section id="tentang" class="py-20 px-6 bg-gray-50">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 fade-in-up">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Tentang <span class="text-green-500">Kami</span></h2>
-                    <div class="w-24 h-1 bg-green-500 mx-auto"></div>
+ <!-- Tentang Section -->
+<section id="tentang" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Tentang <span class="text-green-500">Kami</span></h2>
+            <div class="w-24 h-1 bg-green-500 mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="bg-green-100 rounded-lg p-4 h-80 flex items-center justify-center fade-in-left overflow-hidden relative">
+                
+                <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full w-full rounded-lg">
+                    <img src="{{ asset('ALUN.jpeg') }}" alt="ALUN" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
+                    <img src="{{ asset('ALUNHD.jpeg') }}" alt="ALUNHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
+                    <img src="{{ asset('ICHD.jpeg') }}" alt="ICHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
+                    <img src="{{ asset('BMANGGAHD.jpeg') }}" alt="BMANGGAHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
                 </div>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="bg-green-100 rounded-lg p-4 h-80 flex items-center justify-center fade-in-left overflow-hidden relative">
-                        <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full w-full rounded-lg">
-                            <img src="{{ asset('ALUN.jpeg') }}" alt="ALUN" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
-                            <img src="{{ asset('ALUNHD.jpeg') }}" alt="ALUNHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
-                            <img src="{{ asset('ICHD.jpeg') }}" alt="ICHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
-                            <img src="{{ asset('BMANGGAHD.jpeg') }}" alt="BMANGGAHD" class="min-w-full h-full object-cover rounded-lg flex-shrink-0">
-                        </div>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                            <span class="w-2.5 h-2.5 bg-white/80 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(0)"></span>
-                            <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(1)"></span>
-                            <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(2)"></span>
-                            <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(3)"></span>
-                        </div>
+                
+                <button type="button" id="sliderPrev" onclick="prevSlide()" aria-label="Gambar sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white transition hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-white cursor-pointer">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <button type="button" id="sliderNext" onclick="nextSlide()" aria-label="Gambar berikutnya" class="absolute right-3 top-1/2 -translate-y-1/2 z-50 flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white transition hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-white cursor-pointer">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-50">
+                    <span class="w-2.5 h-2.5 bg-white/80 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(0)"></span>
+                    <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(1)"></span>
+                    <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(2)"></span>
+                    <span class="w-2.5 h-2.5 bg-white/40 rounded-full cursor-pointer hover:bg-white transition" onclick="slideTo(3)"></span>
+                </div>
+                
+            </div>
+            
+            <div class="fade-in-right">
+                <h3 class="text-3xl font-bold text-gray-900 mb-6">Organisasi IDAKOM POLBAN</h3>
+                <div id="tentangText" class="text-gray-700 text-lg leading-relaxed">
+                    <p>IDAKOM POLBAN, yang memiliki nama resmi Ikatan Keluarga Mahasiswa Indramayu (Ika Darma Ayu) Komisariat Politeknik Negeri Bandung, adalah organisasi kemahasiswaan daerah yang berfungsi sebagai wadah pemersatu bagi para mahasiswa perantauan asal Indramayu.</p>
+                    <div id="tentangFull" class="hidden mt-4">
+                        <p class="mb-4">Wilayah pergerakan komisariat ini berpusat di lingkungan kampus Politeknik Negeri Bandung. Sebagai bagian resmi dari organisasi induk Ika Darma Ayu (IDA) Bandung yang memiliki akar sejarah panjang sejak tahun 1964, komisariat ini hadir sebagai "rumah kedua" yang berasaskan kekeluargaan untuk menjaga tali persaudaraan sekaligus merawat kecintaan terhadap budaya luhur tanah Dermayu.</p>
+                        <p class="mb-4">Organisasi ini tidak didirikan oleh satu orang individu tunggal, melainkan lahir dari inisiatif kolektif dan semangat gotong-royong para mahasiswa senior asal Indramayu yang menempuh studi di Politeknik Negeri Bandung. Kehadiran IDAKOM POLBAN tidak hanya sekadar tempat berkumpul dan melepas rindu kampung halaman, tetapi juga aktif bergerak dalam ranah sosial dan edukasi.</p>
+                        <p>Melalui program kerja nyata seperti sosialisasi kampus dan pelaksanaan pengabdian masyarakat, organisasi ini berkomitmen penuh untuk membantu adik-adik pelajar di Indramayu agar dapat melanjutkan pendidikan ke jenjang perguruan tinggi dan terus berkontribusi bagi kemajuan daerah asal mereka.</p>
                     </div>
-                    <div class="fade-in-right">
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Organisasi IDAKOM POLBAN</h3>
-                        <div id="tentangText" class="text-gray-700 text-lg leading-relaxed">
-                            <p>IDAKOM POLBAN, yang memiliki nama resmi Ikatan Keluarga Mahasiswa Indramayu (Ika Darma Ayu) Komisariat Politeknik Negeri Bandung, adalah organisasi kemahasiswaan daerah yang berfungsi sebagai wadah pemersatu bagi para mahasiswa perantauan asal Indramayu.</p>
-                            <div id="tentangFull" class="hidden mt-4">
-                                <p class="mb-4">Wilayah pergerakan komisariat ini berpusat di lingkungan kampus Politeknik Negeri Bandung. Sebagai bagian resmi dari organisasi induk Ika Darma Ayu (IDA) Bandung yang memiliki akar sejarah panjang sejak tahun 1964, komisariat ini hadir sebagai "rumah kedua" yang berasaskan kekeluargaan untuk menjaga tali persaudaraan sekaligus merawat kecintaan terhadap budaya luhur tanah Dermayu.</p>
-                                <p class="mb-4">Organisasi ini tidak didirikan oleh satu orang individu tunggal, melainkan lahir dari inisiatif kolektif dan semangat gotong-royong para mahasiswa senior asal Indramayu yang menempuh studi di Politeknik Negeri Bandung. Kehadiran IDAKOM POLBAN tidak hanya sekadar tempat berkumpul dan melepas rindu kampung halaman, tetapi juga aktif bergerak dalam ranah sosial dan edukasi.</p>
-                                <p>Melalui program kerja nyata seperti sosialisasi kampus dan pelaksanaan pengabdian masyarakat, organisasi ini berkomitmen penuh untuk membantu adik-adik pelajar di Indramayu agar dapat melanjutkan pendidikan ke jenjang perguruan tinggi dan terus berkontribusi bagi kemajuan daerah asal mereka.</p>
-                            </div>
-                        </div>
-                        <button onclick="toggleTentang()" id="tentangToggle" class="mt-4 text-green-600 hover:text-green-800 font-semibold text-sm flex items-center gap-2 transition">
-                            <span id="tentangToggleText">Lebih Detail</span>
-                            <i id="tentangToggleIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
-                        </button>
-                        <div class="grid grid-cols-3 gap-6 mt-12">
-                            <div class="text-center scale-in">
-                                <div class="text-4xl font-bold text-green-500">{{ \App\Models\Anggota::count() }}</div>
-                                <p class="text-gray-600 text-sm mt-2">Anggota Aktif</p>
-                            </div>
-                            <div class="text-center scale-in">
-                                <div class="text-4xl font-bold text-green-500">5</div>
-                                <p class="text-gray-600 text-sm mt-2">Program Kerja</p>
-                            </div>
-                            <div class="text-center scale-in">
-                                <div class="text-4xl font-bold text-green-500">1997</div>
-                                <p class="text-gray-600 text-sm mt-2">Tahun Berdiri</p>
-                            </div>
-                        </div>
+                </div>
+                <button onclick="toggleTentang()" id="tentangToggle" class="mt-4 text-green-600 hover:text-green-800 font-semibold text-sm flex items-center gap-2 transition">
+                    <span id="tentangToggleText">Lebih Detail</span>
+                    <i id="tentangToggleIcon" class="fas fa-chevron-down text-xs transition-transform"></i>
+                </button>
+                <div class="grid grid-cols-3 gap-6 mt-12">
+                    <div class="text-center scale-in">
+                        <div class="text-4xl font-bold text-green-500">{{ \App\Models\Anggota::count() }}</div>
+                        <p class="text-gray-600 text-sm mt-2">Anggota Aktif</p>
+                    </div>
+                    <div class="text-center scale-in">
+                        <div class="text-4xl font-bold text-green-500">5</div>
+                        <p class="text-gray-600 text-sm mt-2">Program Kerja</p>
+                    </div>
+                    <div class="text-center scale-in">
+                        <div class="text-4xl font-bold text-green-500">1997</div>
+                        <p class="text-gray-600 text-sm mt-2">Tahun Berdiri</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Struktur Section -->
         <section id="struktur" class="py-20 px-6">
@@ -865,15 +883,36 @@
             if (!slider) return;
             currentSlide = index;
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            // Update dots
-            document.querySelectorAll('#slider + div span').forEach((dot, i) => {
-                dot.style.background = i === currentSlide ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)';
-            });
+            
+            // PERBAIKAN: Selector untuk titik-titik indikator (dots) di bawah slider
+            const dotsContainer = slider.parentNode.querySelector('.absolute.bottom-3');
+            if(dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('span');
+                dots.forEach((dot, i) => {
+                    dot.style.background = i === currentSlide ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)';
+                });
+            }
         }
 
         function slideTo(index) {
             clearInterval(slideInterval);
             updateSlide(index);
+            startSlideInterval();
+        }
+
+        // PERBAIKAN: Menambahkan fungsi nextSlide()
+        function nextSlide() {
+            clearInterval(slideInterval);
+            const nextIndex = (currentSlide + 1) % totalSlides;
+            updateSlide(nextIndex);
+            startSlideInterval();
+        }
+
+        // PERBAIKAN: Menambahkan fungsi prevSlide()
+        function prevSlide() {
+            clearInterval(slideInterval);
+            const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide(prevIndex);
             startSlideInterval();
         }
 

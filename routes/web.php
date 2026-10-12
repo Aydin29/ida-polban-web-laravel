@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AnggotaController as AdminAnggotaController;
@@ -52,6 +53,15 @@ Route::get('/', function () {
     $strukturPeriodeList = Anggota::whereNotNull('periode')->select('periode')->distinct()->orderBy('periode', 'desc')->pluck('periode');
     return view('welcome', compact('galeris', 'galerisByPeriode', 'anggotas', 'allAnggotas', 'allAnggotasJson', 'periodeList', 'strukturs', 'strukturPeriodeList'));
 });
+
+Route::get('galeri/{filename}', function (string $filename) {
+    abort_if($filename !== basename($filename), 404);
+
+    $disk = Storage::disk('galeri');
+    abort_unless($disk->exists($filename), 404);
+
+    return response()->file($disk->path($filename));
+})->where('filename', '[^/]+');
 
 // Public Routes (tanpa login)
 Route::prefix('public')->name('public.')->group(function () {
